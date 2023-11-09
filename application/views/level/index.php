@@ -34,7 +34,8 @@
 
                     <!-- Content Row -->
                     <div class="row">
-
+                    <?php $this->load->view('level/data-level'); ?>
+                    <?php $this->load->view('level/tambah'); ?>
                     
                     </div>
 
@@ -115,8 +116,12 @@
         </div>
     </div>
 
+    
     <!-- Bootstrap core JavaScript-->
     <?php $this->load->view('partials/script');?>
+    <?php $this->load->view('level/script');?>
+   
+
 </body>
 
 </html>

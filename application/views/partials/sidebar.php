@@ -13,13 +13,13 @@
 
 <!-- Nav Item - Dashboard -->
 <li class="nav-item active">
-    <a class="nav-link" href="/">
+    <a class="nav-link" href="<?= base_url("/") ?>">
         <i class="fas fa-fw fa-tachometer-alt"></i>
         <span>Dashboard</span></a>
 </li>
 
 <li class="nav-item active">
-    <a class="nav-link" href="/index.php/level">
+    <a class="nav-link" href="<?= base_url("index.php/level") ?>">
         <i class="fas fa-fw fa-cog"></i>
         <span>Level</span></a>
 </li>
