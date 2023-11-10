@@ -5,7 +5,7 @@
     <div class="sidebar-brand-icon rotate-n-15">
         <i class="fas fa-laugh-wink"></i>
     </div>
-    <div class="sidebar-brand-text mx-3">SB Admin <sup>2</sup></div>
+    <div class="sidebar-brand-text mx-3">ADMINISTRASI SEKOLAH <sup>MA</sup></div>
 </a>
 
 <!-- Divider -->
@@ -21,7 +21,12 @@
 <li class="nav-item active">
     <a class="nav-link" href="<?= base_url("index.php/level") ?>">
         <i class="fas fa-fw fa-cog"></i>
-        <span>Level</span></a>
+        <span>Data Guru</span></a>
+</li>
+<li class="nav-item active">
+    <a class="nav-link" href="<?= base_url("index.php/siswa") ?>">
+        <i class="fas fa-fw fa-cog"></i>
+        <span>Data Siswa</span></a>
 </li>
 <!-- Divider -->
 <hr class="sidebar-divider">
