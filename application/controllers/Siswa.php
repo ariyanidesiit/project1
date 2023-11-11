@@ -10,8 +10,10 @@ class Siswa extends CI_Controller
     }
     function index()
     {
+        if (!$this->session->userdata('logged_in')) {
+            redirect('login');
+        }
         $data["hasil"] = $this->Model_siswa->ambil_data()->result();
-        // print_r($data['hasil']);
         $this->load->view('siswa/index', $data);
     }
     function tambah()

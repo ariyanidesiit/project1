@@ -1,4 +1,5 @@
-<nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+  <!-- Topbar -->
+                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
 
                     <!-- Sidebar Toggle (Topbar) -->
                     <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
@@ -20,7 +21,7 @@
                     </form>
 
                     <!-- Topbar Navbar -->
-                    <ul class="navbar-navS ml-auto">
+                    <ul class="navbar-nav ml-auto">
 
                         <!-- Nav Item - Search Dropdown (Visible Only XS) -->
                         <li class="nav-item dropdown no-arrow d-sm-none">
@@ -189,7 +190,7 @@
                                     Activity Log
                                 </a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                                <a class="dropdown-item" href="<?php echo base_url('index.php/login/logout'); ?>">
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Logout
                                 </a>
@@ -199,3 +200,4 @@
                     </ul>
 
                 </nav>
+                <!-- End of Topbar -->

@@ -28,6 +28,11 @@
         <i class="fas fa-fw fa-cog"></i>
         <span>Data Siswa</span></a>
 </li>
+<li class="nav-item active">
+    <a class="nav-link" href="<?= base_url("index.php/Datalogin") ?>">
+        <i class="fas fa-fw fa-cog"></i>
+        <span>Data Login</span></a>
+</li>
 <!-- Divider -->
 <hr class="sidebar-divider">
 
