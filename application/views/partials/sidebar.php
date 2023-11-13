@@ -17,7 +17,11 @@
         <i class="fas fa-fw fa-tachometer-alt"></i>
         <span>Dashboard</span></a>
 </li>
-
+<li class="nav-item active">
+    <a class="nav-link" href="<?= base_url("index.php/Datalogin") ?>">
+        <i class="fas fa-fw fa-cog"></i>
+        <span>Data Login</span></a>
+</li>
 <li class="nav-item active">
     <a class="nav-link" href="<?= base_url("index.php/level") ?>">
         <i class="fas fa-fw fa-cog"></i>
@@ -29,10 +33,11 @@
         <span>Data Siswa</span></a>
 </li>
 <li class="nav-item active">
-    <a class="nav-link" href="<?= base_url("index.php/Datalogin") ?>">
+    <a class="nav-link" href="<?= base_url("index.php/Nilai") ?>">
         <i class="fas fa-fw fa-cog"></i>
-        <span>Data Login</span></a>
+        <span>Data Mapel & Nilai</span></a>
 </li>
+
 <!-- Divider -->
 <hr class="sidebar-divider">
 
