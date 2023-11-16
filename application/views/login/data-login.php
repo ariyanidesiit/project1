@@ -4,6 +4,7 @@
             <th>No</th>
             <th>Username</th>
             <th>Password</th>
+            <th>Roles</th>
             <th colspan='2'>Aksi</th>
         </tr>
     </thead>
@@ -16,6 +17,7 @@
                 <td><?php echo $no; ?></td>
                 <td><?php echo $item->username; ?></td>
                 <td><?php echo $item->password; ?></td>
+                <td><?php echo $item->nama_roles; ?></td>
                 <td><button type="button" class="btn btn-primary edit" data-toggle="modal" data-target="#editModal" data-id="<?php echo $item->id_user; ?>">Edit</button></button></td>
                 <td><button type="button" class="btn btn-danger hapus" data-toggle="modal" data-target="#konfirmasiModal" data-id="<?php echo $item->id_user; ?>">Hapus</button> </td>
             </tr>

@@ -3,7 +3,13 @@ class Model_datalog extends CI_Model
 {
     function ambil_data()
     {
-      return $this->db->get('login');
+      // return $this->db->get('login');
+        $this->db->select('*');
+        $this->db->from('login');
+        $this->db->join('roles', 'roles.id_roles = login.id_roles', 'left');
+  
+        $query = $this->db->get();
+        return $query;
     }
 
     public function simpan_data($data)
@@ -33,4 +39,14 @@ class Model_datalog extends CI_Model
     $this->db->where('id_user', $id_user);
     $this->db->update('login', $data);
   }
+  public function get_roles_from_database()
+{
+    $query = $this->db->get('roles'); 
+
+    if ($query->num_rows() > 0) {
+        return $query->result_array();
+    } else {
+        return false;
+    }
+}
 }
