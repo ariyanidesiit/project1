@@ -16,28 +16,21 @@
                 <div id="tampil_modal">
                     <form id="tambahForm" method="post">
                         <div class="form-group">
-                            <label for="username">Username:</label>
-                            <input type="text" class="form-control" name="username" placeholder="Masukkan username" required>
+                            <label for="nama_menu">Nama Menu:</label>
+                            <input type="text" class="form-control" name="nama_menu" placeholder="Masukkan nama menu" required>
                         </div>
                         <div class="form-group">
-                            <label for="password">Password:</label>
-                            <input type="text" class="form-control" name="password" placeholder="Masukkan password" required>
+                            <label for="nama_url">Nama url:</label>
+                            <input type="text" class="form-control" name="nama_url" placeholder="Masukkan nama url" required>
                         </div>
-                        
-                        <label for="nama_roles">Roles:</label>
-                        <select class="form-control" name="id_roles" required>
-                            <?php foreach ($roles as $role): ?>
-                                <option value="<?php echo $role['id_roles']; ?>"><?php echo $role['nama_roles']; ?></option>
-                            <?php endforeach; ?>
-                        </select>
-                        </div>
-
+                        <div class="form-group">
+                            <label for="nama_icon">Nama Icon:</label>
+                            <input type="text" class="form-control" name="nama_icon" placeholder="Masukkan nama icon" required>
                         </div>
                         <div class="modal-footer">
                             <button type="submit" class="btn btn-primary">Simpan</button>
                             <button type="button" class="btn btn-light" data-dismiss="modal">Batal</button>
                         </div>
-
                     </form>
                 </div>
             </div>

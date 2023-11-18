@@ -23,6 +23,11 @@
         <span>Data Login</span></a>
 </li>
 <li class="nav-item active">
+    <a class="nav-link" href="<?= base_url("index.php/Roles") ?>">
+        <i class="fas fa-fw fa-cog"></i>
+        <span></span>Data Role</a>
+</li>
+<li class="nav-item active">
     <a class="nav-link" href="<?= base_url("index.php/level") ?>">
         <i class="fas fa-fw fa-cog"></i>
         <span>Data Guru</span></a>
@@ -37,6 +42,12 @@
         <i class="fas fa-fw fa-cog"></i>
         <span>Data Mapel & Nilai</span></a>
 </li>
+<li class="nav-item active">
+    <a class="nav-link" href="<?= base_url("index.php/Menu") ?>">
+        <i class="fas fa-fw fa-cog"></i>
+        <span>Data Menu</span></a>
+</li>
+
 
 <!-- Divider -->
 <hr class="sidebar-divider">

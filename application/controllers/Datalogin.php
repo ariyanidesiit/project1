@@ -15,6 +15,8 @@ class Datalogin extends CI_Controller
         if (!$this->session->userdata('logged_in')) {
             redirect('login');
         }
+        $data['roles'] = $this->Model_datalog->get_roles_from_database();
+       
         $data["hasil"] = $this->Model_datalog->ambil_data()->result();
         $this->load->view('login/index', $data);
     }
@@ -23,7 +25,8 @@ class Datalogin extends CI_Controller
     {
         $data = array(
             'username' => $this->input->post('username'),
-            'password' => $this->input->post('password')  
+            'password' => $this->input->post('password'),
+            'id_roles' => $this->input->post('id_roles')  
         );
 
         $this->Model_datalog->simpan_data($data);
