@@ -16,23 +16,27 @@ class Datalogin extends CI_Controller
             redirect('login');
         }
         $data['roles'] = $this->Model_datalog->get_roles_from_database();
-       
+
         $data["hasil"] = $this->Model_datalog->ambil_data()->result();
         $this->load->view('login/index', $data);
     }
 
-    function tambah()
+    public function tambah()
     {
+        $password = $this->input->post('password');
+        $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+
         $data = array(
             'username' => $this->input->post('username'),
-            'password' => $this->input->post('password'),
-            'id_roles' => $this->input->post('id_roles')  
+            'password' => $hashed_password,
+            'id_roles' => $this->input->post('id_roles')
         );
 
         $this->Model_datalog->simpan_data($data);
 
         redirect('login');
     }
+
 
     public function hapus()
     {
@@ -54,8 +58,15 @@ class Datalogin extends CI_Controller
         $id_user = $this->input->post('id');
         $username = $this->input->post('username');
         $password = $this->input->post('password');
+        $password1 = $this->input->post('password1');
 
-        $this->Model_datalog->edit_data($id_user, $username, $password);
+        if (!empty($password)) {
+            $password_to_use = password_hash($password, PASSWORD_DEFAULT);
+        } else {
+            $password_to_use = $password1;
+        }
+
+        $this->Model_datalog->edit_data($id_user, $username, $password_to_use);
 
         $response = array(
             'status' => 'success',

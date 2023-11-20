@@ -1,16 +1,16 @@
 <script>
-$(document).ready(function() {
-    $('#tambahForm').submit(function(e) {
-        e.preventDefault();
-        
-        var formData = $(this).serialize();
+    $(document).ready(function() {
+        $('#tambahForm').submit(function(e) {
+            e.preventDefault();
 
-        $.ajax({
-            url: "<?php echo base_url('index.php/roles/tambah'); ?>",
-            type: 'post',
-            data: formData,
-            success: function(response) {
-                swal({
+            var formData = $(this).serialize();
+
+            $.ajax({
+                url: "<?php echo base_url('index.php/roles/tambah'); ?>",
+                type: 'post',
+                data: formData,
+                success: function(response) {
+                    swal({
                         title: "Sukses!",
                         text: "Data berhasil Disimpan.",
                         icon: "success",
@@ -20,13 +20,13 @@ $(document).ready(function() {
                         }
                     });
                     $('#konfirmasiModal').modal('hide');
-            },
-            error: function() {
-                swal("Error!", "Terjadi kesalahan saat menghubungi server.", "error");
-            }
+                },
+                error: function() {
+                    swal("Error!", "Terjadi kesalahan saat menghubungi server.", "error");
+                }
+            });
         });
     });
-});
 </script>
 
 <script>
@@ -80,9 +80,14 @@ $(document).ready(function() {
                 },
                 dataType: 'json',
                 success: function(response) {
-                    $('#editId').val(response.id_roles);
-                    $('#editNama_roles').val(response.nama_roles);
-                  
+                    console.log(response);
+                    var idRoles = response.roles_data ? response.roles_data[0].id_roles : response.akses_data[0].id_roles;
+                    var namaRoles = response.roles_data ? response.roles_data[0].nama_roles : response.akses_data[0].nama_roles;
+
+                    $('#editId').val(idRoles);
+                    $('#editNama_roles').val(namaRoles);
+
+
                 },
                 error: function() {
                     alert('Terjadi kesalahan saat mengambil data.');
@@ -108,7 +113,7 @@ $(document).ready(function() {
                             icon: "success",
                         }).then((willReload) => {
                             if (willReload) {
-                                location.reload(); 
+                                location.reload();
                             }
                         });
                         $('#konfirmasiModal').modal('hide');
@@ -125,11 +130,12 @@ $(document).ready(function() {
 </script>
 
 <script>
-     $(document).ready(function() {
+    $(document).ready(function() {
         var idToEdit;
 
         $('.akses').click(function() {
             idToEdit = $(this).data('id');
+            // console.log(idToEdit);
 
             $.ajax({
                 url: "<?php echo base_url('index.php/roles/get_data_by_id'); ?>",
@@ -139,13 +145,24 @@ $(document).ready(function() {
                 },
                 dataType: 'json',
                 success: function(response) {
-                    $('#editId').val(response.id_roles);
-                    $('#editNama_roles').val(response.nama_roles);
-                  
+                    console.log(response);
+                    var idRoles = response.roles_data ? response.roles_data[0].id_roles : response.akses_data[0].id_roles;
+                    var namaRoles = response.roles_data ? response.roles_data[0].nama_roles : response.akses_data[0].nama_roles;
+                    var id_menus = response.roles_data ? response.roles_data[0].id_menu : response.akses_data[0].id_menu;
+
+                    $('#id_akses').val(idRoles);
+                    $('#judul').text(namaRoles);
+                    $('input[type="checkbox"]').prop('checked', false);
+                    response.akses_data.map(function(item) {
+                        var idMenu = item.id_menu;
+                        $('input[type="checkbox"][value="' + idMenu + '"]').prop('checked', true);
+                    });
+
                 },
                 error: function() {
                     alert('Terjadi kesalahan saat mengambil data.');
                 }
             });
         });
+    });
 </script>

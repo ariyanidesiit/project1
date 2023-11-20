@@ -82,7 +82,7 @@ $(document).ready(function() {
                 success: function(response) {
                     $('#editId').val(response.id_user);
                     $('#editUsername').val(response.username);
-                    $('#editPassword').val(response.password);
+                    $('#editPassword1').val(response.password);
                 },
                 error: function() {
                     alert('Terjadi kesalahan saat mengambil data.');

@@ -2,12 +2,12 @@
 
 class Model_nilai extends CI_Model
 {
-    function ambil_data()
-    {
-        return $this->db->get('datanilai');
-    }
-   
-    public function simpan_data($data)
+  function ambil_data()
+  {
+    return $this->db->get('datanilai');
+  }
+
+  public function simpan_data($data)
   {
     $this->db->insert('datanilai', $data);
   }
@@ -34,4 +34,10 @@ class Model_nilai extends CI_Model
     $this->db->where('id_nilai', $id_nilai);
     $this->db->update('datanilai', $data);
   }
-} 
+
+  public function hapus_by_id($id)
+  {
+    $this->db->where('id', $id);
+    return $this->db->delete('akses');
+  }
+}

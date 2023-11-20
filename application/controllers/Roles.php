@@ -18,7 +18,6 @@ class Roles extends CI_Controller
         }
         $data["hasil"] = $this->Model_role->ambil_data()->result();
         $data['menu'] = $this->Model_role->get_menu_from_database()->result();
-        //  $data['roles'] = $this->Model_login->get_roles_from_database();
         $this->load->view('roles/index', $data);
     }
 
@@ -36,7 +35,6 @@ class Roles extends CI_Controller
     public function hapus()
     {
         $id_roles = $this->input->post('id');
-        // $this->load->model('Model_name');
         $this->Model_role->hapus_data($id_roles);
         redirect('roles');
     }
@@ -52,7 +50,7 @@ class Roles extends CI_Controller
     {
         $id_roles = $this->input->post('id');
         $nama_roles = $this->input->post('nama_roles');
-       
+
 
         $this->Model_role->edit_data($id_roles, $nama_roles);
 
@@ -62,5 +60,21 @@ class Roles extends CI_Controller
         );
 
         echo json_encode($response);
+    }
+
+    public function akses()
+    {
+        $id_akses = $this->input->post('id_akses');
+        $akses_terpilih = $this->input->post('akses');
+        
+        $this->Model_role->hapus_by_id($id_akses);
+    
+        foreach ($akses_terpilih as $akses) {
+            $this->Model_role->akses($id_akses, $akses);
+        }
+    
+        $this->session->set_flashdata('success', 'Akses berhasil diperbarui!');
+        
+        redirect('roles');
     }
 }

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<?php $this->load->view('partials/head');?>
+<?php $this->load->view('partials/head'); ?>
 
 <body id="page-top">
 
@@ -9,7 +9,7 @@
     <div id="wrapper">
 
         <!-- Sidebar -->
-        <?php $this->load->view('partials/sidebar');?>
+        <?php $this->load->view('partials/sidebar'); ?>
         <!-- End of Sidebar -->
 
         <!-- Content Wrapper -->
@@ -19,71 +19,22 @@
             <div id="content">
 
                 <!-- Topbar -->
-                <?php $this->load->view('partials/topbar');?>
+                <?php $this->load->view('partials/topbar'); ?>
                 <!-- End of Topbar -->
 
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
 
-                    <!-- Page Heading -->
-                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">Data Mapel</h1>
-                        <!-- <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
-                                class="fas fa-download fa-sm text-white-50"></i> Generate Report</a> -->
-                    </div>
 
-                    <!-- Content Row -->
-                    <div class="row">
                     <?php $this->load->view('nilai/data-nilai'); ?>
-                    <?php $this->load->view('nilai/tambah'); ?>                    
-                    </div>
-
-                    <!-- Content Row -->
-
-                    <div class="row">
-
-                        <!-- Area Chart -->
-                       
-
-                        <!-- Pie Chart -->
-                       
-                    </div>
-
-                    <!-- Content Row -->
-                    <div class="row">
-
-                        <!-- Content Column -->
-                        <div class="col-lg-6 mb-4">
-
-                            <!-- Project Card Example -->
-                         
-
-                            <!-- Color System -->
-                           
-
-                        </div>
-
-                        <div class="col-lg-6 mb-4">
-
-                            <!-- Illustrations -->
-                            
-
-                            <!-- Approach -->
-                           
-
-                        </div>
-                    </div>
+                    <?php $this->load->view('partials/footer'); ?>
+                    <?php $this->load->view('nilai/tambah'); ?>
 
                 </div>
                 <!-- /.container-fluid -->
 
             </div>
             <!-- End of Main Content -->
-
-            <!-- Footer -->
-            <?php $this->load->view('partials/footer');?>
-            <!-- End of Footer -->
-
         </div>
         <!-- End of Content Wrapper -->
 
@@ -96,8 +47,7 @@
     </a>
 
     <!-- Logout Modal-->
-    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
+    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -115,11 +65,11 @@
         </div>
     </div>
 
-    
+
     <!-- Bootstrap core JavaScript-->
-    <?php $this->load->view('partials/script');?>
-    <?php $this->load->view('nilai/script');?>
-   
+    <?php $this->load->view('partials/script'); ?>
+    <?php $this->load->view('nilai/script'); ?>
+
 
 </body>
 

@@ -17,8 +17,9 @@
                     </div>
                     <div class="form-group">
                         <label for="editPassword">Password:</label>
-                        <input type="text" class="form-control" name="password" id="editPassword" placeholder="Masukkan password" required>
+                        <input type="text" class="form-control" name="password" id="editPassword" placeholder="Masukkan password">
                     </div>
+                    <input type="hidden" class="form-control" name="password1" id="editPassword1" placeholder="Masukkan password">
                     <button type="submit" class="btn btn-primary">Simpan Perubahan</button>
                 </form>
             </div>
