@@ -1,7 +1,7 @@
 /*
  Navicat Premium Data Transfer
 
- Source Server         : db_crud
+ Source Server         : local
  Source Server Type    : MySQL
  Source Server Version : 80030 (8.0.30)
  Source Host           : localhost:3306
@@ -11,7 +11,7 @@
  Target Server Version : 80030 (8.0.30)
  File Encoding         : 65001
 
- Date: 16/11/2023 09:47:33
+ Date: 24/11/2023 10:16:13
 */
 
 SET NAMES utf8mb4;
@@ -26,12 +26,20 @@ CREATE TABLE `akses`  (
   `id_roles` int NULL DEFAULT NULL,
   `id_menu` int NULL DEFAULT NULL,
   PRIMARY KEY (`id_akses`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 43 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of akses
 -- ----------------------------
-INSERT INTO `akses` VALUES (1, 1, 1);
+INSERT INTO `akses` VALUES (26, 1, 1);
+INSERT INTO `akses` VALUES (27, 1, 3);
+INSERT INTO `akses` VALUES (28, 1, 4);
+INSERT INTO `akses` VALUES (29, 1, 5);
+INSERT INTO `akses` VALUES (30, 1, 6);
+INSERT INTO `akses` VALUES (31, 1, 7);
+INSERT INTO `akses` VALUES (40, 2, 4);
+INSERT INTO `akses` VALUES (41, 2, 5);
+INSERT INTO `akses` VALUES (42, 3, 5);
 
 -- ----------------------------
 -- Table structure for datainput
@@ -42,7 +50,7 @@ CREATE TABLE `datainput`  (
   `nama` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
   `keterangan` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 8 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 8 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of datainput
@@ -59,7 +67,7 @@ CREATE TABLE `datanilai`  (
   `mapel` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
   `mapel_nilai` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
   PRIMARY KEY (`id_nilai`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 9 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 9 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of datanilai
@@ -73,16 +81,17 @@ DROP TABLE IF EXISTS `login`;
 CREATE TABLE `login`  (
   `id_user` int NOT NULL AUTO_INCREMENT,
   `username` varchar(25) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
-  `password` varchar(25) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
+  `password` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
   `id_roles` int NULL DEFAULT NULL,
   PRIMARY KEY (`id_user`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 12 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 15 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of login
 -- ----------------------------
-INSERT INTO `login` VALUES (10, 'admin', '123', 2);
-INSERT INTO `login` VALUES (11, 'guru', '234', 1);
+INSERT INTO `login` VALUES (10, 'yusuf', '$2y$10$n9iqnJeAgyS7reTzJZmpiemEn8HGBMsaHTlMmdLUXo4TNUCP04yLO', 1);
+INSERT INTO `login` VALUES (13, 'desi', '$2y$10$p2eCP4qSVkO8JBaTwznjIOZb.FxofkbwCpVYZdgnd9Zbk6U8MNEP6', 2);
+INSERT INTO `login` VALUES (14, 'akbar', '$2y$10$NXkvNU6ppESZ1n2CDTrbo.DJce5GzmH/ljEDOyY5KdW4Sg5yHp0NG', 3);
 
 -- ----------------------------
 -- Table structure for menu
@@ -94,14 +103,17 @@ CREATE TABLE `menu`  (
   `nama_url` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
   `nama_icon` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
   PRIMARY KEY (`id_menu`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 8 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of menu
 -- ----------------------------
-INSERT INTO `menu` VALUES (1, 'Data login', 'Datalogin', 'fas fa-fw fa-cog');
-INSERT INTO `menu` VALUES (3, 'Guru', 'guru', 'gdgrth');
-INSERT INTO `menu` VALUES (4, 'Data Mapel & Nilai', 'menu', 'xxxx');
+INSERT INTO `menu` VALUES (1, 'Data login', 'Datalogin', 'fas fa-fw fa-tachometer-alt');
+INSERT INTO `menu` VALUES (3, 'Roles', 'Roles', 'fas fa-fw fa-wrench');
+INSERT INTO `menu` VALUES (4, 'Data Guru', 'level', 'fas fa-fw fa-folder');
+INSERT INTO `menu` VALUES (5, 'Data Siswa', 'Siswa', 'fas fa-fw fa-folder');
+INSERT INTO `menu` VALUES (6, 'Data Mapel & Nilai', 'Nilai', 'fas fa-fw fa-chart-area');
+INSERT INTO `menu` VALUES (7, 'Data Menu', 'Menu', 'fas fa-fw fa-table');
 
 -- ----------------------------
 -- Table structure for roles
@@ -111,13 +123,14 @@ CREATE TABLE `roles`  (
   `id_roles` int NOT NULL AUTO_INCREMENT,
   `nama_roles` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
   PRIMARY KEY (`id_roles`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 14 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of roles
 -- ----------------------------
-INSERT INTO `roles` VALUES (1, 'guru');
-INSERT INTO `roles` VALUES (2, 'admin');
+INSERT INTO `roles` VALUES (1, 'SuperAdmin');
+INSERT INTO `roles` VALUES (2, 'Guru');
+INSERT INTO `roles` VALUES (3, 'Siswa');
 
 -- ----------------------------
 -- Table structure for siswa
@@ -133,7 +146,7 @@ CREATE TABLE `siswa`  (
   `agama` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
   `umur` char(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
   PRIMARY KEY (`id_siswa`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 15 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 15 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of siswa
